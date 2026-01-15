@@ -1,1 +1,130 @@
+ONE PAGER — Proyecto de Análisis de Datos Deportivos
+Qué es este proyecto
 
+Este proyecto transforma datos crudos de competiciones de powerlifting en insights claros y comparables, pensados para apoyar decisiones reales en el entrenamiento y el análisis deportivo.
+
+No es un dashboard genérico ni un experimento técnico aislado:
+es un producto de datos diseñado con criterio de negocio y dominio deportivo.
+
+Problema que aborda
+
+En muchos contextos deportivos:
+
+Hay datos, pero no contexto.
+
+Se usan rankings que inducen errores.
+
+Se comparan atletas que no son comparables.
+
+Se limpian datos sin entender su significado.
+
+El resultado son decisiones mal informadas, expectativas irreales y métricas poco confiables.
+
+Enfoque del proyecto
+
+El proyecto se construye bajo tres principios:
+
+Contexto antes que juicio
+
+Distribuciones antes que rankings
+
+Decisiones documentadas antes que automatización
+
+Cada transformación del dato tiene una justificación explícita.
+
+Qué demuestra este proyecto
+Desde lo técnico
+
+Diseño de pipelines de datos por fases
+
+Uso de SQL analítico con intención
+
+Separación clara entre datos crudos, limpieza y capas analíticas
+
+Preparación de datasets para visualización y análisis
+
+Desde lo analítico
+
+Capacidad de distinguir dato interesante de dato accionable
+
+Construcción de métricas explicables
+
+Comparaciones controladas y honestas
+
+Pensamiento estadístico básico aplicado al negocio
+
+Desde producto
+
+Definición clara de usuarios y problemas
+
+Features ligadas a preguntas concretas
+
+Evolución planificada sin sobre-ingeniería
+
+Documentación como parte del producto
+
+Qué NO busca demostrar
+
+Modelos predictivos avanzados
+
+IA como fin en sí mismo
+
+Complejidad innecesaria
+
+“Dashboards bonitos” sin sustancia
+
+Estas decisiones son intencionales y forman parte del criterio del proyecto.
+
+Estructura del proyecto (alto nivel)
+
+Fases → ordenan el proceso técnico
+
+Capas → ordenan el pensamiento analítico
+
+Esto permite:
+
+Escalar el proyecto sin romperlo
+
+Incorporar nuevos análisis sin rehacer lo anterior
+
+Entender rápidamente el razonamiento detrás de cada output
+
+Valor profesional
+
+Este proyecto muestra:
+
+Cómo se piensa un producto de datos desde cero
+
+Cómo se conectan dominio, datos y decisiones
+
+Cómo documentar criterio analítico
+
+Cómo priorizar claridad sobre hype
+
+Es representativo de cómo trabajaría en un entorno profesional real.
+
+Perfil del autor
+
+Profesor de Educación Física (conocimiento del dominio)
+
+Tester de software (criterio de calidad y proceso)
+
+En formación activa en Cloud (Google Cloud)
+
+Interesado en roles donde:
+
+El dato soporte decisiones reales
+
+El criterio sea tan importante como la técnica
+
+El producto importe más que la herramienta
+
+Estado actual
+
+Dataset definido y documentado
+
+Estructura analítica implementada
+
+One pager técnico y documentación de criterio
+
+Roadmap técnico en definición
