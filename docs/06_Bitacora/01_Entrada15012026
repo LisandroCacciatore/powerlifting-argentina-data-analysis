@@ -1,0 +1,154 @@
+# Bitácora de Proyecto — 15 de enero de 2026
+
+## Objetivo del día
+Ordenar el proyecto a nivel **conceptual, estructural y narrativo** para evitar dispersión, consolidarlo como producto profesional y habilitar una ejecución técnica sostenida y defendible.
+
+El foco no estuvo en escribir código, sino en **pensar antes de ejecutar**.
+
+---
+
+## Avances realizados
+
+### 1. Alineación del proyecto como producto
+Se reafirmó que el repositorio no es solo un resultado técnico, sino también:
+- registro del proceso
+- portfolio profesional
+- material educativo
+
+Cada decisión técnica debe tener una **razón de negocio, de usuario o de criterio deportivo**.
+
+---
+
+### 2. Definición clara entre fases y capas
+Se resolvió una confusión central del proyecto:
+- **Fases** → momentos del proceso técnico (en el tiempo)
+- **Capas** → niveles de análisis y preguntas al dato
+
+Jerarquía acordada:
+- **Docs decide**
+- **SQL implementa**
+- **Data materializa**
+
+---
+
+### 3. Validación de la arquitectura técnica
+Se confirmó como correcta y realista la arquitectura actual:
+
+
+Decisiones validadas:
+- GCS como staging
+- separación raw / analytics
+- control de costos (budget y límites de query)
+
+No había errores estructurales, sino falta de jerarquía explícita.
+
+---
+
+### 4. Re-lectura y re-encuadre del repositorio
+Se analizó la estructura real del repo en GitHub y se detectó el punto de fricción:
+- mezcla entre fases, capas y tipos de artefactos
+
+Re-encuadre acordado (sin reescribir):
+- `Docs/Arquitectura/Fase_X` → fases reales del proyecto
+- `SQL/phase_X` → capas de análisis
+
+---
+
+### 5. Regla arquitectónica central (decisión clave)
+Regla simple que ordena todo el proyecto:
+
+- **Las FASES viven en `Docs/`**
+- **Las CAPAS viven en `SQL/`**
+- **Los DATOS viven en `data/`**
+
+---
+
+### 6. Definición de documentos clave
+Se acordó el rol de cada documento estructural:
+
+- `analysis_layers.md` → documento rector de capas analíticas
+- `phase_1_scope.md` → qué entra y qué queda fuera
+- `column_classification.md` → criterio sobre columnas (no limpieza ciega)
+- `technical_roadmap.md` → pasos incrementales, sin sobreingeniería
+- One Pagers (técnico y recruiters) → visión de producto y criterio profesional
+
+---
+
+### 7. Formalización de las fases del pipeline
+Se definieron y documentaron las fases:
+
+- **Fase 0** — Raw / Observación  
+- **Fase 1** — Limpieza controlada  
+- **Fase 2** — Dataset analítico  
+- **Fase 3+** — Contexto y comparación  
+
+Cada fase incluye:
+- objetivo
+- principios
+- qué se hace y qué no
+
+---
+
+### 8. Marco analítico y estándar de datos
+Se consolidó:
+- el orden lógico de las preguntas analíticas
+- la idea de un **estándar nacional de datos deportivos** como diferencial del proyecto
+
+La limpieza de datos se define como **controlada y justificada**, nunca automática.
+
+---
+
+### 9. Comunicación, marca y producto
+Se alineó la estrategia de comunicación:
+- mostrar criterio y proceso, no humo técnico
+- atraer público correcto antes que volumen
+
+Decisiones tomadas:
+- PDF descargable como pieza final del proyecto
+- hilo de 3 posts (arquitectura → capas → estándar)
+- README de “Estado del Proyecto” como señal de madurez
+- artículo madre: *“Cómo pensar proyectos de datos”*
+
+---
+
+## Decisiones clave tomadas
+- El proyecto se gestiona como si fuera un equipo de roles.
+- Documentación y narrativa son parte del entregable.
+- No se limpia el dato por default.
+- Los valores inconsistentes pueden transformarse en preguntas.
+- Se prioriza cerrar fases completas antes de abrir nuevas líneas.
+
+---
+
+## Justificaciones
+- Evitar avanzar rápido en la dirección incorrecta.
+- Construir criterio transferible, no solo output.
+- Hacer el proyecto entendible, defendible y escalable.
+- Elevar el estándar profesional del trabajo con datos deportivos.
+
+---
+
+## Riesgos o dudas abiertas
+- Mantener el equilibrio entre documentación y ejecución.
+- No sobre-documentar antes de tener feedback del SQL real.
+- Validar el estándar de datos con casos concretos.
+
+---
+
+## Próximos pasos
+- Ejecutar **FASE 1 — Limpieza controlada**.
+- Implementar **Layer 01** con intención analítica.
+- Alinear el roadmap técnico final con el arquitecto.
+- Generar el README de “Estado del Proyecto”.
+
+---
+
+## Estado al cierre del día
+- Arquitectura: definida y validada  
+- Estructura del repo: entendida y alineada  
+- Documentación: con rol claro  
+- Dirección del proyecto: consolidada  
+
+**No fue un día de hacer mucho.  
+Fue un día de hacer bien.  
+Y en proyectos de datos, eso marca la diferencia.**
