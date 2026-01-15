@@ -1,1 +1,45 @@
+ASE 2: DATASET ANALÍTICO
 
+Objetivo de la fase
+
+Construir uno o más datasets analíticos estables, pensados para responder preguntas de negocio y análisis deportivo de forma repetible.
+
+Esta fase separa claramente:
+
+datos base
+
+métricas derivadas
+
+agregaciones frecuentes
+
+Qué hay en esta fase
+
+Tablas o vistas analíticas
+
+Métricas derivadas documentadas
+
+Convenciones de naming
+
+Dataset preparado para visualización
+
+Principios
+
+Repetibilidad
+
+Claridad semántica
+
+Bajo costo de consulta
+
+Facilidad de uso para dashboards y comparativas
+
+Qué habilita
+
+Análisis por país
+
+Rankings
+
+Distribuciones
+
+Comparaciones históricas
+
+Base para Looker Studio o futuros modelos
