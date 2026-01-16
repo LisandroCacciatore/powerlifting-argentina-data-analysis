@@ -83,6 +83,8 @@ Quedan **fuera de alcance**:
 - normalización simple de textos  
 - derivación de campos temporales (año, mes)  
 
+“Las transformaciones no alteran el significado deportivo original de los datos.”
+
 No se permite:
 
 - imputación compleja  
