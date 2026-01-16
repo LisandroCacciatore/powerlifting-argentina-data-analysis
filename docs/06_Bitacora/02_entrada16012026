@@ -1,0 +1,127 @@
+# Informe de Avance — Proyecto OpenPowerlifting  
+**Fecha:** 16/08  
+**Estado:** Capa 01 — Análisis Descriptivo Base (definición y cierre de alcance)
+
+---
+
+## 🧭 Resumen ejecutivo
+
+Durante la jornada de hoy se trabajó en **cerrar conceptualmente y documentar en profundidad la Capa 01**, estableciendo un marco explícito de alcance, arquitectura y criterios analíticos.
+
+El foco **no estuvo en escribir queries**, sino en definir con precisión qué entra y qué queda fuera de la capa, asegurando:
+
+- claridad conceptual  
+- reproducibilidad técnica  
+- bajo costo operativo  
+- facilidad de auditoría y explicación  
+
+Este trabajo sienta la **base estructural** para todo el desarrollo posterior del proyecto.
+
+---
+
+## 🧱 Avances clave realizados
+
+### 1️⃣ Definición de Alcance — Capa 01
+
+Se generó el documento **“Alcance — Capa 01 (Análisis Descriptivo Base)”**, donde se establecen de forma explícita:
+
+- objetivo de la capa  
+- dataset fuente (OpenPowerlifting, sin modificaciones semánticas)  
+- campos incluidos y excluidos  
+- métricas permitidas vs métricas fuera de alcance  
+- transformaciones habilitadas y prohibidas  
+- alcance geográfico (foco en Argentina)  
+- outputs esperados  
+- criterio formal de cierre de la capa  
+
+Este documento funciona como un **contrato de alcance**, evitando *scope creep* y sobreingeniería.
+
+---
+
+### 2️⃣ Documento conceptual de la Capa 01 (propósito y criterio)
+
+Se desarrolló un texto explicativo ampliado que define:
+
+- el propósito real de la Capa 01 dentro del sistema de capas  
+- el problema típico que resuelve en proyectos de datos deportivos  
+- el tipo de preguntas que **sí** responde y las que **no**  
+- el público objetivo de esta capa  
+- los principios de diseño (simplicidad, explicabilidad, bajo costo)  
+- el resultado esperado al finalizar la capa  
+
+Este material está pensado tanto para **documentación técnica** como para **comunicación hacia perfiles no técnicos** (recruiters, stakeholders, formación).
+
+---
+
+### 3️⃣ Documento de Arquitectura — Capa 01
+
+Se redactó el documento **“Arquitectura — Capa 01 (Análisis Descriptivo Base)”**, donde se define:
+
+- el rol de la Capa 01 dentro del modelo **Docs → SQL → Data**  
+- el tipo de capa (descriptiva, determinística, auditable)  
+- el objetivo arquitectónico de la capa  
+- transformaciones permitidas y explícitamente prohibidas  
+- métricas habilitadas  
+- validaciones y testing esperados  
+- outputs formales  
+- criterio de cierre técnico  
+
+Queda explícito que **no existe lógica de negocio ni interpretación** en esta capa.
+
+---
+
+## 🧪 Estado de testing y calidad
+
+Se definió que todas las validaciones de Capa 01 estarán documentadas en  
+**`Phase_01_Tests.md`**.
+
+El enfoque de testing incluye exclusivamente:
+
+- checks determinísticos  
+- conteos cruzados  
+- validaciones de completitud  
+- consistencia de tipos  
+
+No se incluyen tests de hipótesis ni validaciones interpretativas.
+
+---
+
+## 🔜 Próximos pasos definidos (Arquitectura)
+
+El siguiente bloque de trabajo se centrará en **materializar lo definido**, con la creación secuencial de los siguientes artefactos:
+
+### Documento de criterios de columnas
+- definición semántica de cada campo  
+- reglas de tipificación  
+- valores válidos / inválidos  
+
+### Documento técnico de montaje
+- carga en BigQuery  
+- estructura de tablas  
+- particionamiento y clustering  
+- costos esperados  
+
+### Documento de testing del montaje
+- checks técnicos post-carga  
+- validaciones de integridad  
+- control de errores  
+
+### Queries para crear tablas
+- SQL reproducible  
+- alineado 100% con los documentos de criterio  
+
+👉 Estos pasos se realizarán de forma **consciente y secuencial**, priorizando criterio sobre velocidad.
+
+---
+
+## 🧠 Observación final
+
+El proyecto se encuentra en una etapa de **maduración conceptual fuerte**.  
+Antes de escribir una sola query compleja, se está asegurando que:
+
+- el alcance esté cerrado  
+- el lenguaje sea preciso  
+- las decisiones sean defendibles  
+- cualquier tercero pueda entender el *por qué*  
+
+Esto posiciona el trabajo no solo como un proyecto técnico, sino como un **ejemplo de buena práctica en diseño de proyectos de datos**.
