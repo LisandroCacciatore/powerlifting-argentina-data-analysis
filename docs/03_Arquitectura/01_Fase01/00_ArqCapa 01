@@ -1,0 +1,161 @@
+# Arquitectura — Capa 01 (Análisis Descriptivo Base)
+
+## Propósito del documento
+
+Este documento define **qué es y qué no es** la Capa 01 del proyecto.
+
+Su función principal es:
+
+* Alinear criterio entre análisis, testing y arquitectura
+* Evitar interpretaciones implícitas o derivaciones prematuras
+* Servir como contrato técnico–conceptual para las capas posteriores
+
+La Capa 01 no busca responder *por qué* ni *qué debería pasar*, sino dejar **claro qué está pasando en los datos**, de forma verificable.
+
+---
+
+## Rol de la Capa 01 dentro del sistema de capas
+
+Dentro del modelo de capas definido:
+
+* **Docs** → deciden
+* **SQL** → implementa
+* **Data** → materializa
+
+La Capa 01 es la primera capa donde el dato se transforma, pero **sin interpretación**.
+
+Se trata de una capa:
+
+* Descriptiva
+* Determinística
+* Auditable
+* Reproducible
+
+No existe lógica de negocio avanzada en esta capa.
+
+---
+
+## Dataset fuente
+
+**OpenPowerlifting — Full Dataset**
+
+Características relevantes:
+
+* Dataset histórico, no transaccional
+* Granularidad a nivel de intento (lift)
+* Mezcla de datos observacionales y datos declarativos
+
+La Capa 01 trabaja **exclusivamente** sobre este dataset fuente, sin enriquecimientos externos.
+
+---
+
+## Objetivo de la Capa 01
+
+Establecer un **estado base confiable del dato**, respondiendo preguntas como:
+
+* ¿Qué datos existen realmente?
+* ¿Con qué cobertura y completitud?
+* ¿En qué forma llegan?
+* ¿Qué métricas simples pueden calcularse sin inferencia?
+
+La Capa 01 **no valida hipótesis** ni construye narrativas.
+
+---
+
+## Tipo de transformaciones permitidas
+
+En esta capa solo se permiten transformaciones **estructurales y descriptivas**.
+
+### Transformaciones permitidas
+
+* Limpieza básica (nulos, valores inválidos evidentes)
+* Normalización de formatos
+* Tipificación de columnas
+* Cálculo de métricas simples
+* Agregaciones directas sin interpretación
+
+Ejemplos:
+
+* Conteos
+* Promedios
+* Máximos / mínimos
+* Distribuciones
+* Ratios directos
+
+---
+
+## Transformaciones explícitamente prohibidas
+
+Para proteger el alcance, **no se permite** en Capa 01:
+
+* Segmentación avanzada
+* Inferencias causales
+* Comparaciones entre grupos con interpretación
+* Rankings con juicio de valor
+* Features derivadas con intención predictiva
+* Suposiciones sobre comportamiento o performance
+
+Todo análisis que requiera contexto o intención queda fuera de esta capa.
+
+---
+
+## Métricas habilitadas
+
+Las métricas de Capa 01 deben cumplir:
+
+* Ser calculables directamente desde el dato
+* No depender de supuestos externos
+* Ser reproducibles
+
+Ejemplos de métricas válidas:
+
+* Total de atletas
+* Total de competencias
+* Total de intentos registrados
+* Distribución de pesos levantados
+* Frecuencia de participación por año
+
+---
+
+## Validaciones y Testing
+
+Cada output de Capa 01 debe poder ser validado mediante:
+
+* Conteos cruzados
+* Checks de completitud
+* Consistencia de tipos
+* Reglas determinísticas simples
+
+Las validaciones asociadas se definen en **Phase_01_Tests.md**.
+
+---
+
+## Outputs esperados
+
+La Capa 01 produce:
+
+* Tablas base descriptivas
+* Vistas agregadas simples
+* Documentación del criterio aplicado
+
+Estos outputs son **inputs directos** de Capa 02.
+
+---
+
+## Criterio de cierre de la Capa 01
+
+La Capa 01 se considera completa cuando:
+
+* El dataset está correctamente tipado
+* Las métricas descriptivas están calculadas
+* No existen ambigüedades semánticas
+* Los tests asociados pasan correctamente
+* El alcance está documentado y cerrado
+
+---
+
+## Principio rector
+
+> *Si una métrica necesita explicación, no pertenece a la Capa 01.*
+
+Este principio guía todas las decisiones de diseño dentro de esta capa.
