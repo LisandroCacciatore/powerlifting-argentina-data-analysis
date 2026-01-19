@@ -1,0 +1,161 @@
+# 01_Data_Mounting_Tests.md  
+**Testing del Montaje de Datos — Capa 01**
+
+## 1. Propósito del testing
+
+Este documento define los controles de validación aplicados al proceso de montaje de datos de la Capa 01 — Análisis Descriptivo Base del proyecto **Powerlifting Argentina Data Analysis**.
+
+El objetivo del testing en esta etapa es validar que:
+
+- los datos montados respetan el alcance conceptual definido en los documentos de arquitectura semántica  
+- la estructura técnica del pipeline no introduce errores semánticos ni distorsiona el significado original de los datos  
+- los supuestos arquitectónicos definidos para la Capa 01 se mantienen estables a lo largo del proceso de carga  
+
+El testing en esta capa **no evalúa resultados analíticos, métricas ni interpretaciones deportivas**.  
+Su función es proteger la coherencia entre fuente, arquitectura y modelo analítico.
+
+---
+
+## 2. Alcance del testing
+
+### 2.1 Nivel de ejecución
+
+- Los tests se ejecutan **manualmente** en esta etapa del proyecto.
+- En fases posteriores se prevé la automatización parcial del testing, incluyendo:
+  - validaciones de carga
+  - validaciones de visualización básica
+  - testing de *happy path* sobre dashboards mediante herramientas de automatización (ej. Playwright)
+
+### 2.2 Capas cubiertas
+
+El testing definido en este documento aplica a:
+
+- Cloud Storage (estructura y archivos cargados)
+- BigQuery:
+  - tablas `raw`
+  - tablas `stage`
+
+Las tablas `analytics` se consideran fuera de alcance en esta fase.
+
+### 2.3 Momento de ejecución
+
+Los tests se ejecutan:
+
+- inmediatamente después del montaje inicial del dataset
+- luego de cualquier modificación en:
+  - estructura de archivos
+  - esquema de tablas
+  - lógica básica de transformación permitida
+
+---
+
+## 3. Tipos de tests definidos
+
+El enfoque de testing se organiza en los siguientes tipos conceptuales:
+
+### 3.1 Tests de esquema
+
+Validan que:
+
+- las columnas esperadas existen
+- los nombres de columnas son correctos
+- los tipos de datos son coherentes con el diseño conceptual
+
+### 3.2 Tests de integridad básica
+
+Validan que:
+
+- los registros no se pierden entre capas
+- no se generan duplicados involuntarios
+- se mantienen los identificadores contextuales esperados
+
+### 3.3 Tests de consistencia semántica
+
+Validan que:
+
+- las transformaciones aplicadas no alteran el significado deportivo original
+- los valores categóricos se mantienen estables
+- no se introducen reinterpretaciones implícitas
+
+### 3.4 Tests de volumen y orden de magnitud
+
+Validan que:
+
+- el volumen de registros es consistente con lo esperado para el recorte geográfico (Argentina)
+- las variaciones de volumen sean explicables y documentables
+
+---
+
+## 4. Casos de test (definición conceptual)
+
+Cada caso de test se define conceptualmente antes de cualquier implementación técnica.
+
+### Ejemplo de estructura de un caso de test
+
+- **Nombre del test**  
+  Identificación clara y descriptiva.
+
+- **Qué valida**  
+  Qué supuesto arquitectónico o semántico se está verificando.
+
+- **Cómo se valida**  
+  Descripción conceptual del control (comparación, conteo, revisión de esquema).
+
+- **Resultado esperado**  
+  Condición que debe cumplirse para considerar el test exitoso.
+
+### Tipos de casos incluidos
+
+- existencia de columnas definidas en la Capa 01  
+- ausencia de columnas explícitamente fuera de alcance  
+- coherencia de tipos de datos  
+- conservación de registros entre `raw` y `stage`  
+- presencia controlada de valores nulos esperados  
+
+---
+
+## 5. Criterios de aprobación
+
+En esta etapa del proyecto:
+
+- no se definen tests bloqueantes
+- no se establece un umbral de falla automática del pipeline
+
+Los resultados del testing se utilizan para:
+
+- documentar comportamientos del dataset
+- identificar riesgos conocidos
+- ajustar decisiones en capas posteriores
+
+Las observaciones detectadas se registran como:
+
+- notas técnicas
+- advertencias de calidad
+- insumos para la definición de nuevas capas analíticas
+
+---
+
+## 6. Rol del testing en la arquitectura general
+
+El testing en la Capa 01 cumple un rol de **protección estructural**, no de validación de negocio.
+
+Este enfoque permite:
+
+- desacoplar calidad de datos de interpretación analítica
+- detectar problemas temprano sin sobrecargar el pipeline
+- sostener una arquitectura escalable y auditable
+
+El alcance deliberadamente acotado del testing es una decisión estratégica alineada con los objetivos fundacionales de la Capa 01.
+
+---
+
+## 7. Proyección a fases futuras
+
+En capas posteriores, el testing podrá ampliarse para incluir:
+
+- automatización de validaciones técnicas
+- validación de flujos completos (*end-to-end*)
+- testing de visualizaciones y carga de dashboards
+- controles de regresión ante cambios estructurales
+
+Estas extensiones no forman parte del alcance actual y serán documentadas en archivos específicos por capa.
