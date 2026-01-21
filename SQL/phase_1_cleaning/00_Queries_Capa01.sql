@@ -166,10 +166,25 @@ FROM
   `burnished-rider-368414.Openpowerlifting.OpenDataRaw`
 WHERE 
   Country = 'Argentina'
+  AND WeightClassKg IS NOT NULL
 GROUP BY 
   WeightClassKg
 ORDER BY 
-  CAST(WeightClassKg AS FLOAT64) ASC;
+  CASE 
+    WHEN WeightClassKg LIKE '%+' THEN CAST(REPLACE(WeightClassKg, '+', '') AS FLOAT64) + 1000
+    ELSE SAFE_CAST(WeightClassKg AS FLOAT64)
+  END ASC;
+
+
+--- Explicación de los cambios:
+
+Agregué filtro: AND WeightClassKg IS NOT NULL para excluir valores nulos
+Manejo de "90+": En el ORDER BY:
+
+WHEN WeightClassKg LIKE '%+' detecta categorías abiertas (como "90+")
+REPLACE(WeightClassKg, '+', '') elimina el símbolo "+"
++ 1000 asegura que estas categorías aparezcan al final del ordenamiento
+SAFE_CAST previene errores si hay otros valores no numéricos ----
 
 -- Q6b: Distribución segmentada por sexo
 SELECT 
@@ -181,10 +196,20 @@ FROM
   `burnished-rider-368414.Openpowerlifting.OpenDataRaw`
 WHERE 
   Country = 'Argentina'
+  AND WeightClassKg IS NOT NULL
+  AND Sex IS NOT NULL
 GROUP BY 
   Sex, WeightClassKg
 ORDER BY 
-  Sex, CAST(WeightClassKg AS FLOAT64) ASC;
+  Sex, 
+  CASE 
+    WHEN WeightClassKg LIKE '%+' THEN CAST(REPLACE(WeightClassKg, '+', '') AS FLOAT64) + 1000
+    ELSE SAFE_CAST(WeightClassKg AS FLOAT64)
+  END ASC;
+Cambios realizados:
+
+Filtros adicionales: Agregué AND WeightClassKg IS NOT NULL y AND Sex IS NOT NULL para evitar categorías vacías
+ORDER BY mejorado: Reemplacé el CAST simple por la misma lógica de manejo de categorías abiertas (como "90+")
 
 
 -- ================================================================================
