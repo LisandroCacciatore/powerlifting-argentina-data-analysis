@@ -1,4 +1,3 @@
-flowchart TD
     %% Fuentes
     A[Dataset OpenPowerlifting CSV] --> B[Cloud Storage]
     B --> C[BigQuery - Raw]
