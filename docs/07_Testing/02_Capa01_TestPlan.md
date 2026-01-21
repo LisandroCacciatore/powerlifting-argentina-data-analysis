@@ -1,4 +1,5 @@
-Test Plan — Capa 01 · Análisis Descriptivo Base
+Test Plan — 
+Capa 01 · Análisis Descriptivo Base
 1. Objetivo del test
 
 Validar que el conjunto completo de queries Capa 01:
