@@ -3,7 +3,7 @@ Queries Capa 01 - Análisis Descriptivo Base
 -- ================================================================================
 -- QUERIES CAPA 01 - ANÁLISIS DESCRIPTIVO BASE
 -- Proyecto: Powerlifting Argentina Data Analysis
--- Dataset: burnished-rider-368414.analytics.openpowerlifting
+-- Dataset: burnished-rider-368414.Openpowerlifting.OpenDataRaw
 -- Fecha: Enero 2026
 -- ================================================================================
 -- 
@@ -33,7 +33,7 @@ SELECT
   COUNT(*) AS participaciones_totales,
   ROUND(COUNT(*) / COUNT(DISTINCT Name), 2) AS participaciones_promedio_por_atleta
 FROM 
-  `burnished-rider-368414.analytics.openpowerlifting`
+  `burnished-rider-368414.Openpowerlifting.OpenDataRaw`
 WHERE 
   Country = 'Argentina';
 
@@ -51,7 +51,7 @@ SELECT
   COUNT(*) AS participaciones,
   ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER(), 2) AS porcentaje
 FROM 
-  `burnished-rider-368414.analytics.openpowerlifting`
+  `burnished-rider-368414.Openpowerlifting.OpenDataRaw`
 WHERE 
   Country = 'Argentina'
 GROUP BY 
@@ -74,7 +74,7 @@ SELECT
   ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER(), 2) AS porcentaje,
   COUNT(DISTINCT Name) AS atletas_unicos
 FROM 
-  `burnished-rider-368414.analytics.openpowerlifting`
+  `burnished-rider-368414.Openpowerlifting.OpenDataRaw`
 WHERE 
   Country = 'Argentina'
 GROUP BY 
@@ -97,7 +97,7 @@ SELECT
   COUNT(*) AS participaciones,
   ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER(), 2) AS porcentaje
 FROM 
-  `burnished-rider-368414.analytics.openpowerlifting`
+  `burnished-rider-368414.Openpowerlifting.OpenDataRaw`
 WHERE 
   Country = 'Argentina'
 GROUP BY 
@@ -111,7 +111,7 @@ SELECT
   COUNT(*) AS participaciones,
   ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER(), 2) AS porcentaje
 FROM 
-  `burnished-rider-368414.analytics.openpowerlifting`
+  `burnished-rider-368414.Openpowerlifting.OpenDataRaw`
 WHERE 
   Country = 'Argentina'
 GROUP BY 
@@ -134,7 +134,7 @@ SELECT
   COUNT(DISTINCT Name) AS atletas_unicos,
   COUNT(DISTINCT Federation) AS federaciones_activas
 FROM 
-  `burnished-rider-368414.analytics.openpowerlifting`
+  `burnished-rider-368414.Openpowerlifting.OpenDataRaw`
 WHERE 
   Country = 'Argentina'
   AND Date IS NOT NULL
@@ -158,7 +158,7 @@ SELECT
   COUNT(*) AS participaciones,
   ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER(), 2) AS porcentaje
 FROM 
-  `burnished-rider-368414.analytics.openpowerlifting`
+  `burnished-rider-368414.Openpowerlifting.OpenDataRaw`
 WHERE 
   Country = 'Argentina'
 GROUP BY 
@@ -173,7 +173,7 @@ SELECT
   COUNT(*) AS participaciones,
   ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER(PARTITION BY Sex), 2) AS porcentaje_por_sexo
 FROM 
-  `burnished-rider-368414.analytics.openpowerlifting`
+  `burnished-rider-368414.Openpowerlifting.OpenDataRaw`
 WHERE 
   Country = 'Argentina'
 GROUP BY 
@@ -196,7 +196,7 @@ SELECT
   ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER(), 2) AS porcentaje,
   COUNT(DISTINCT Name) AS atletas_unicos
 FROM 
-  `burnished-rider-368414.analytics.openpowerlifting`
+  `burnished-rider-368414.Openpowerlifting.OpenDataRaw`
 WHERE 
   Country = 'Argentina'
 GROUP BY 
@@ -214,7 +214,7 @@ SELECT
   COUNT(*) AS participaciones,
   ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER(), 2) AS porcentaje
 FROM 
-  `burnished-rider-368414.analytics.openpowerlifting`
+  `burnished-rider-368414.Openpowerlifting.OpenDataRaw`
 WHERE 
   Country = 'Argentina'
 GROUP BY 
@@ -237,7 +237,7 @@ SELECT
   ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER(), 2) AS porcentaje,
   COUNT(DISTINCT Name) AS atletas_unicos
 FROM 
-  `burnished-rider-368414.analytics.openpowerlifting`
+  `burnished-rider-368414.Openpowerlifting.OpenDataRaw`
 WHERE 
   Country = 'Argentina'
 GROUP BY 
@@ -255,7 +255,7 @@ SELECT
   COUNT(*) AS participaciones,
   ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER(), 2) AS porcentaje
 FROM 
-  `burnished-rider-368414.analytics.openpowerlifting`
+  `burnished-rider-368414.Openpowerlifting.OpenDataRaw`
 WHERE 
   Country = 'Argentina'
 GROUP BY 
@@ -278,7 +278,7 @@ SELECT
   COUNT(*) AS participaciones,
   ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER(), 2) AS porcentaje
 FROM 
-  `burnished-rider-368414.analytics.openpowerlifting`
+  `burnished-rider-368414.Openpowerlifting.OpenDataRaw`
 WHERE 
   Country = 'Argentina'
 GROUP BY 
@@ -300,7 +300,7 @@ SELECT
   COUNT(*) AS participaciones,
   ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER(), 2) AS porcentaje
 FROM 
-  `burnished-rider-368414.analytics.openpowerlifting`
+  `burnished-rider-368414.Openpowerlifting.OpenDataRaw`
 WHERE 
   Country = 'Argentina'
 GROUP BY 
@@ -327,7 +327,7 @@ SELECT
   COUNT(*) AS participaciones,
   ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER(), 2) AS porcentaje
 FROM 
-  `burnished-rider-368414.analytics.openpowerlifting`
+  `burnished-rider-368414.Openpowerlifting.OpenDataRaw`
 WHERE 
   Country = 'Argentina'
 GROUP BY 
@@ -350,7 +350,7 @@ SELECT
   COUNT(*) AS participaciones,
   ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER(), 2) AS porcentaje
 FROM 
-  `burnished-rider-368414.analytics.openpowerlifting`
+  `burnished-rider-368414.Openpowerlifting.OpenDataRaw`
 WHERE 
   Country = 'Argentina'
 GROUP BY 
