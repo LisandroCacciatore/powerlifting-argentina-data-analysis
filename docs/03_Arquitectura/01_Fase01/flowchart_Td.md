@@ -1,3 +1,8 @@
+# Mi Flujo de Datos OpenPowerlifting
+
+Aquí puedes ver el diagrama de arquitectura y consultas:
+
+```mermaid
 flowchart TD
     %% --- Estilos ---
     classDef rawStage fill:#f9f,stroke:#333,stroke-width:1px;
