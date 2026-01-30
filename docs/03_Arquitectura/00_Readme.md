@@ -8,6 +8,7 @@ realista y escalable.
 CSV grandes  
 → Google Cloud Storage (raw data)  
 → BigQuery (tablas raw y análisis)
+→ LookerStudio (Visualización y presentación de datos)
 
 ## Principios
 
