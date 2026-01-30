@@ -1,165 +1,84 @@
-Scope
+## 📐 Alcance del Proyecto
+_Introducción_
 
-Ingesta, limpieza controlada y base analítica (Argentina)
+Este proyecto se estructura en capas de análisis progresivas, con el objetivo de transformar datos crudos del ecosistema deportivo en conocimiento claro, reproducible y transferible.
+Cada capa tiene un alcance explícito, decisiones documentadas y criterios técnicos alineados con el uso real de datos en entornos Cloud, priorizando:
+- claridad conceptual,
+- control de costos,
+- reproducibilidad,
+- criterio deportivo antes que complejidad técnica.
 
-Introducción
+El proyecto no busca “resultados espectaculares” tempranos, sino construir una base sólida sobre la cual los análisis posteriores tengan sentido.
 
-La Fase 1 de este proyecto establece la base técnica y conceptual sobre la cual se construirá todo el análisis posterior.
+## 🧱 Enfoque por capas
 
-El objetivo no es producir insights avanzados ni comparaciones complejas, sino crear un dataset confiable, entendible y reproducible, alineado con un uso realista de Google Cloud y con foco en control de costos.
+El análisis se organiza en capas independientes pero encadenadas:
 
-Esta fase prioriza criterio antes que complejidad.
+_Capa 00 — Datos Crudos (Raw)_
 
-🎯 Objetivo de la Fase 1
+Propósito:
+- preservar el dataset original sin interpretaciones,
+- garantizar trazabilidad total.
 
-Transformar el dataset crudo de OpenPowerlifting en una base limpia y estandarizada de competidores de Argentina, lista para análisis descriptivo del ecosistema nacional.
+Características:
+- ingesta directa de CSVs completos,
+- sin limpieza semántica,
+- sin recortes analíticos,
+- solo control técnico (tipos, encoding, storage).
 
-Al finalizar esta fase, el proyecto debe poder responder con claridad:
+_Capa 01 — Análisis Descriptivo Base_
 
-quiénes componen el ecosistema
+Propósito:
+- construir una primera visión confiable del ecosistema,
+- habilitar análisis descriptivo sin sesgos interpretativos.
 
-cómo se distribuye la participación
+Características:
+- limpieza conservadora,
+- recortes explícitos (geográficos / contextuales),
+- métricas simples y agregadas,
+- foco en entender qué hay en los datos,
 
-qué datos son confiables y cuáles requieren contexto
+👉 El detalle completo del alcance, métricas y decisiones de esta capa se documenta en:
+docs/01_AnalisisDeCapa/Alcance_Capa_01.md
 
-📦 Dataset de partida
+## Capas posteriores (02+)
 
-Fuente: OpenPowerlifting (bulk CSV)
+Planteadas, pero fuera del alcance actual:
+- normalizaciones avanzadas
+- análisis longitudinal
+- métricas comparativas complejas
+- modelos predictivos
+- dashboards finales
+- IA aplicada
 
-Versión: openpowerlifting-latest
+Estas capas se activan solo cuando las anteriores estén cerradas y justificadas.
 
-Formato: CSV único, sin joins
+## 🌎 Alcance geográfico general
 
-Volumen: dataset completo, con recorte posterior
+Foco inicial:
+Argentina
 
-🗺️ Alcance geográfico
-Incluido
+La expansión regional o internacional está prevista para fases posteriores, una vez validada la estructura base.
 
-Levantadores con:
+## 🧠 Criterio rector del proyecto
 
-Country = 'Argentina' y/o
+Si una decisión no puede explicarse desde la práctica deportiva real
+o desde el uso responsable de datos, no entra en esta etapa.
 
-Meets realizados en Argentina (MeetCountry = 'Argentina')
+## 📦 Entregables esperados por capa
 
-Esta doble condición permite capturar tanto el perfil de levantadores argentinos como el contexto competitivo local.
+Cada capa debe producir:
+- datasets claramente versionados,
+- queries documentadas,
+- decisiones técnicas y analíticas explícitas,
+- costos controlados y reproducibles,
+- documentación suficiente para terceros.
 
-Excluido
+🚫 Qué no evalúa este proyecto (en etapas tempranas)
+- quién es “el mejor”,
+- qué federación es superior,
+- qué país tiene un mejor rendimiento deportivo.
 
-Otros países (por ahora)
+qué fórmula es la correcta
 
-Comparaciones regionales o internacionales
-
-La expansión a Sudamérica forma parte de una fase posterior.
-
-🧱 Alcance técnico
-Incluido en Fase 1
-
-Ingesta de CSV grandes vía Google Cloud Storage
-
-Tabla raw sin modificaciones
-
-Creación de una tabla clean con:
-
-tipos de datos consistentes
-
-nombres de columnas normalizados
-
-recorte geográfico explícito
-
-Documentación de decisiones de limpieza
-
-Queries descriptivas de Capa 1
-
-Excluido en Fase 1
-
-Modelos de datos complejos
-
-Particionado avanzado
-
-Materializaciones optimizadas
-
-Automatizaciones
-
-Dashboards finales
-
-IA o modelos predictivos
-
-🧹 Filosofía de limpieza de datos
-
-La limpieza en Fase 1 es conservadora.
-
-Principios
-
-No borrar información que pueda tener valor analítico
-
-No imputar valores sin justificación deportiva
-
-Diferenciar entre “dato sucio” y “dato incómodo”
-
-Ejemplos explícitos
-
-Valores negativos en intentos → se conservan
-
-Totales nulos → no se rellenan
-
-Edades aproximadas → se mantienen
-
-Inconsistencias entre federaciones → se documentan
-
-El objetivo es hacer explícito el problema, no ocultarlo.
-
-📊 Tipo de análisis habilitado
-
-La Fase 1 habilita únicamente análisis de:
-
-perfil del ecosistema
-
-composición por sexo, evento y equipamiento
-
-distribución general del rendimiento (sin ranking fino)
-
-No se habilitan aún:
-
-comparaciones entre países
-
-análisis longitudinales
-
-inferencias causales
-
-📁 Entregables de la Fase 1
-
-Al cerrar esta fase, el proyecto debe contar con:
-
-En BigQuery
-
-raw_openpowerlifting_arg
-
-clean_openpowerlifting_arg
-
-primeras vistas o tablas analíticas de perfil
-
-En GitHub
-
-docs/phase_1_scope.md
-
-docs/column_classification.md
-
-docs/data_standard_argentina.md
-
-queries organizadas por fase
-
-🚫 Qué no se evalúa en esta fase
-
-Quién es el mejor levantador
-
-Qué país rinde más
-
-Qué fórmula es “mejor”
-
-Qué federación es superior
-
-Todas esas preguntas requieren capas posteriores.
-
-🧠 Criterio rector
-
-Si una decisión no puede explicarse desde el entrenamiento y la competencia real, no entra en esta fase.
+Esas preguntas requieren capas posteriores y otro nivel de contexto.
